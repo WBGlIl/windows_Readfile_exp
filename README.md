@@ -1,1 +1,3 @@
-"windows_Readfile_exp" 
+"windows_Readfile_exp"
+Useage: readfile.exe filename
+会将要获取的文件复制到当前目录下而不是在输出一堆乱七八糟的。目前现先这样如果以后有时间的话在改一下比如加个远程post提交到服务器等等
