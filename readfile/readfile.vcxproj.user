@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerCommandArguments>C:\Users\test\Desktop\1.txt</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsRemoteDebugger</DebuggerFlavor>
+    <RemoteDebuggerCommandArguments>C:\Users\test\Desktop\1.txt</RemoteDebuggerCommandArguments>
+    <RemoteDebuggerConnection>RemoteWithoutAuthentication</RemoteDebuggerConnection>
+    <RemoteDebuggerCommand>C:\Users\lyl\Desktop\test\Readfile.exe</RemoteDebuggerCommand>
+    <RemoteDebuggerWorkingDirectory>C:\Users\lyl\Desktop\test\Readfile</RemoteDebuggerWorkingDirectory>
+    <RemoteDebuggerServerName>DESKTOP-UMK4NGM:4022</RemoteDebuggerServerName>
+    <DeploymentDirectory>C:\Users\lyl\Desktop\test\Readfile</DeploymentDirectory>
+  </PropertyGroup>
+</Project>
