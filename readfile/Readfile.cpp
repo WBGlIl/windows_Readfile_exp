@@ -24,10 +24,6 @@ std::wstring s2ws(const std::string& str)
 
 LPCWSTR chlp(const char* str)
 {
-	//int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
-	//std::wstring wstrTo(size_needed, 0);
-	//MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), &wstrTo[0], size_needed);
-	//return wstrTo;
 	WCHAR wszClassName[256];
 	memset(wszClassName, 0, sizeof(wszClassName));
 	MultiByteToWideChar(CP_ACP, 0, str, strlen(str) + 1, wszClassName, sizeof(wszClassName) / sizeof(wszClassName[0]));
@@ -79,12 +75,12 @@ DWORD WINAPI MyThreadFunction(LPVOID lpParam)
 				hFile = CreateFile(dfc,GENERIC_READ,FILE_SHARE_READ | FILE_SHARE_DELETE | FILE_SHARE_WRITE,NULL,OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,NULL);                
 				DWORD  dwBytesRead = 0;
 				ReadFile(hFile, buff, 400, &dwBytesRead, NULL);
+				std::cout << "3" << std::endl;
 				if (dwBytesRead > 0)
 				{
 					succeeded = true;
 					CopyFile(dfc, chlp(wfilename), false);
-
-					std::cout<<"Read ok \n"<< std::endl;
+					std::cout<<"Read Ok"<< std::endl;
 					return 0;
 				}
 				CloseHandle(hFile);
@@ -100,6 +96,7 @@ DWORD WINAPI MyThreadFunction(LPVOID lpParam)
 void runme() {
 	HANDLE mThread = CreateThread(NULL,0,MyThreadFunction,NULL,0,NULL);  
 	SetThreadPriority(mThread, THREAD_PRIORITY_TIME_CRITICAL);
+	std::cout << "2" << std::endl;
 }
 
 int main(int argc, const char * argv[])
@@ -133,6 +130,8 @@ int main(int argc, const char * argv[])
 		MSIHANDLE blah;
 		LANGID langid = 0x0409;
 		runme();
+		//Òþ²Ø°²×°
+		std::cout << "1" << std::endl;
 		MsiSetInternalUI(INSTALLUILEVEL_NONE, NULL);
 		MsiAdvertiseProductA(c, "C:\\Users\\Public\\blah\\test", NULL, langid);
 		
@@ -144,7 +143,7 @@ int main(int argc, const char * argv[])
 	system("del C:\\Users\\Public\\blah2\*.*");
 	RemoveDirectory(L"C:\\Users\\Public\\blah2");
 	
-	getchar();
+	//getchar();
 	return 0;
 }
 
